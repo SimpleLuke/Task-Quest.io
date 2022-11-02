@@ -1,5 +1,11 @@
+import Monster from "./components/monster/monster";
+
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <Monster />
+    </div>
+  );
 };
 
 export default App;
