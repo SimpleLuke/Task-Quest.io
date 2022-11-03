@@ -1,22 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { revealOneCharacter } from "../../store/features/typewriter/typewriterSlice";
+import {
+  revealOneCharacter,
+  showText,
+} from "../../store/features/typewriter/typewriterSlice";
+import { prologueText } from "../../text/prologue.text";
 
-const TypeWriter = () => {
+const TypeWriter = ({ scene }) => {
   const dispatch = useDispatch();
   const count = useRef(0);
-  const { characters, delay } = useSelector((store) => store.typewriter);
+  const { characters, delay, textOrder } = useSelector(
+    (store) => store.typewriter
+  );
 
   useEffect(() => {
+    console.log(textOrder);
+    dispatch(showText(scene[textOrder]));
+    count.current = 0;
+  }, [textOrder]);
+
+  useEffect(() => {
+    console.log("revealed");
     const timeoutId = setTimeout(() => {
       if (count.current <= characters.length - 1) {
         dispatch(revealOneCharacter(count.current));
         count.current++;
-        console.log(delay);
+        // console.log(delay);
       }
     }, delay);
     return () => clearTimeout(timeoutId);
-  }, [count.current]);
+  }, [count.current, characters, textOrder]);
 
   return (
     <div className="text w-[80%] text-6xl">

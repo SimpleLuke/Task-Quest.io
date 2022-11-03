@@ -1,42 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { prologueText } from "../../../text/prologue.text";
 
-var speeds = {
-  pause: 500, //Higher number = longer delay
-  slow: 120,
-  normal: 90,
-  fast: 40,
-  superFast: 10,
-};
+const sortText = (textLines) => {
+  const characters = [];
+  textLines.forEach((line, index) => {
+    if (index < textLines.length - 1) {
+      line.string += " ";
+    }
 
-var textLines = [
-  { speed: speeds.slow, string: "Oh, hello!" },
-  { speed: speeds.pause, string: "", pause: true },
-  { speed: speeds.normal, string: "Have you seen my pet" },
-  { speed: speeds.fast, string: "frog", classes: ["green"] },
-  { speed: speeds.normal, string: "around?" },
-];
-
-var characters = [];
-textLines.forEach((line, index) => {
-  if (index < textLines.length - 1) {
-    line.string += " ";
-  }
-
-  line.string.split("").forEach((character) => {
-    characters.push({
-      character: character,
-      isSpace: character === " " && !line.pause,
-      delayAfter: line.speed,
-      isReveal: false,
-      classes: line.classes || [],
+    line.string.split("").forEach((character) => {
+      characters.push({
+        character: character,
+        isSpace: character === " " && !line.pause,
+        delayAfter: line.speed,
+        isReveal: false,
+        classes: line.classes || [],
+      });
     });
   });
-});
+  return characters;
+};
 
 const initialState = {
-  characters: characters,
+  characters: [],
   delay: 0,
   classNames: "",
+  textOrder: 0,
 };
 
 const typewriterSlice = createSlice({
@@ -50,10 +39,17 @@ const typewriterSlice = createSlice({
           ? 0
           : state.characters[payload].delayAfter;
     },
+    showText: (state, { payload }) => {
+      state.characters = sortText(payload);
+    },
+    nextText: (state) => {
+      state.textOrder += 1;
+    },
   },
 });
 
 // console.log(healthSlice);
 
 export default typewriterSlice.reducer;
-export const { revealOneCharacter } = typewriterSlice.actions;
+export const { revealOneCharacter, showText, nextText } =
+  typewriterSlice.actions;
