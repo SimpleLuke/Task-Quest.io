@@ -33,9 +33,6 @@ const HealthBar = () => {
       viewBox="0 -0.5 38 9"
       shapeRendering="crispEdges"
     >
-      <metadata>
-        Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj
-      </metadata>
       <path
         stroke="#222034"
         d="M2 0h34M1 1h1M36 1h1M0 2h1M3 2h32M37 2h1M0 3h1M2 3h1M35 3h1M37 3h1M0 4h1M2 4h1M35 4h1M37 4h1M0 5h1M2 5h1M35 5h1M37 5h1M0 6h1M3 6h32M37 6h1M1 7h1M36 7h1M2 8h34"
