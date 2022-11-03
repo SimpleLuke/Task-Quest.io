@@ -5,27 +5,31 @@ import { revealOneCharacter } from "../store/features/typewriter/typewriterSlice
 const PrologueScene = () => {
   const dispatch = useDispatch();
   const count = useRef(0);
-  const { characters } = useSelector((store) => store.typewriter);
+  const { characters, delay, classNames } = useSelector(
+    (store) => store.typewriter
+  );
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (count.current < characters.length - 1) {
+      if (count.current <= characters.length - 1) {
         dispatch(revealOneCharacter(count.current));
         count.current++;
+        console.log(delay);
       }
-    }, 300);
+    }, delay);
     return () => clearTimeout(timeoutId);
   }, [count.current]);
 
   return (
     <Fragment>
-      <div className="text">
+      <div className="text w-[80%]">
         {characters.map((character, index) => {
-          console.log(character);
           return (
             <span
               key={index}
-              className={`${character.isReveal ? "revealed" : ""}`}
+              className={`${
+                character.isReveal ? "revealed" : ""
+              } ${character.classes.join(" ")}`}
             >
               {character.character}
             </span>

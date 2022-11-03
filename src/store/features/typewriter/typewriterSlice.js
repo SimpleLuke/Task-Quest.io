@@ -36,6 +36,7 @@ textLines.forEach((line, index) => {
 const initialState = {
   characters: characters,
   delay: 0,
+  classNames: "",
 };
 
 const typewriterSlice = createSlice({
@@ -44,7 +45,10 @@ const typewriterSlice = createSlice({
   reducers: {
     revealOneCharacter: (state, { payload }) => {
       state.characters[payload].isReveal = true;
-      //   state.delay = state.characters[payload].isSpace && !state.characters[payload].pause ? 0 : state.characters[payload].delayAfter;
+      state.delay =
+        state.characters[payload].isSpace && !state.characters[payload].pause
+          ? 0
+          : state.characters[payload].delayAfter;
     },
   },
 });
