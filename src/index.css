@@ -72,16 +72,16 @@
     transform: translateY(80%);
   }
 
-  /* .text {
+  .text span {
     opacity: 0;
   }
-  .text .revealed {
+  .text span.revealed {
     opacity: 1;
   }
-  .text .green {
+  .text span.green {
     color: #27ae60;
   }
-  .text .red {
+  .text span.red {
     color: #ff0000;
-  } */
+  }
 }

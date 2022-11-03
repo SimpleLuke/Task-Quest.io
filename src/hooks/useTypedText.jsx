@@ -9,7 +9,7 @@ export const useTypedText = (lines) => {
 
     const timeout = setTimeout(() => {
       setTypedText(lines[0].slice(0, typedText.length + 1));
-    }, 300);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, [lines, typedText]);
