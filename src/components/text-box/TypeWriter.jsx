@@ -13,13 +13,13 @@ const TypeWriter = ({ scene }) => {
   );
 
   useEffect(() => {
-    console.log(textOrder);
+    // console.log(textOrder);
     dispatch(showText(scene[textOrder]));
     count.current = 0;
   }, [textOrder]);
 
   useEffect(() => {
-    console.log("revealed");
+    // console.log("revealed");
     const timeoutId = setTimeout(() => {
       if (count.current <= characters.length - 1) {
         dispatch(revealOneCharacter(count.current));

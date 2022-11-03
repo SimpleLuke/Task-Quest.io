@@ -15,8 +15,8 @@ const TwoPrologue = [
   { speed: speeds.normal, string: "..." },
   { speed: speeds.slow, string: "NOW !!!", classes: ["red"] },
   { speed: speeds.normal, string: "", pause: true },
-  { speed: speeds.slow, string: "Come to see your" },
-  { speed: speeds.slow, string: "ENEMY !", class: ["purple"] },
+  { speed: speeds.normal, string: "Come to see your" },
+  { speed: speeds.slow, string: "ENEMY !", classes: ["purple"] },
 ];
 
 export const prologueText = [OnePrologue, TwoPrologue];
