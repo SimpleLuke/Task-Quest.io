@@ -71,7 +71,7 @@
     /* font-size: 6vw; */
     word-spacing: 0.2em;
     margin: 0 auto;
-    background: #fff;
+    background: #000;
     padding: 1em;
     border-bottom: 1vw solid #0e6dad;
     position: relative;
@@ -87,14 +87,18 @@
 
   .text span {
     opacity: 0;
+    color: #fff;
   }
   .text span.revealed {
     opacity: 1;
   }
-  .text span.green {
-    color: #27ae60;
+  .text span.yellow {
+    color: rgb(255, 249, 74);
   }
   .text span.red {
     color: #ff0000;
+  }
+  .text span.purple {
+    color: rgb(201, 38, 255);
   }
 }

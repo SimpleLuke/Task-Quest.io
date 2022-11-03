@@ -11,7 +11,10 @@ const PrologueScene = () => {
   return (
     <Fragment>
       <TypeWriter scene={prologueText} />
-      <button className="text-6xl" onClick={() => dispatch(nextText())}>
+      <button
+        className="text-6xl text-white p-4"
+        onClick={() => dispatch(nextText())}
+      >
         NEXT
       </button>
     </Fragment>

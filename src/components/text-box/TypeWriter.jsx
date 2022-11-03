@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   revealOneCharacter,
   showText,
 } from "../../store/features/typewriter/typewriterSlice";
-import { prologueText } from "../../text/prologue.text";
 
 const TypeWriter = ({ scene }) => {
   const dispatch = useDispatch();

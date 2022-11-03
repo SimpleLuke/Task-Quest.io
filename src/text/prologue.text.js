@@ -1,20 +1,22 @@
 import { speeds } from "./text.utilies";
 
 const OnePrologue = [
-  { speed: speeds.slow, string: "Oh, hello!" },
+  { speed: speeds.normal, string: "Welcome back !" },
   { speed: speeds.pause, string: "", pause: true },
-  { speed: speeds.normal, string: "Have you seen my pet" },
-  { speed: speeds.fast, string: "frog", classes: ["green"] },
-  { speed: speeds.normal, string: "around?" },
+  { speed: speeds.normal, string: "My" },
+  { speed: speeds.slow, string: "Hero", classes: ["yellow"] },
+  { speed: speeds.slow, string: "!" },
+  { speed: speeds.normal, string: "Where have you been ?" },
 ];
 
 const TwoPrologue = [
-  { speed: speeds.fast, string: "Welcome back!" },
+  { speed: speeds.fast, string: "We need you" },
   { speed: speeds.pause, string: "", pause: true },
-  { speed: speeds.normal, string: "My" },
-  { speed: speeds.slow, string: "Hero,", classes: ["red"] },
-  { speed: speeds.normal, string: "we are waiting for you" },
-  { speed: speeds.slow, string: "..." },
+  { speed: speeds.normal, string: "..." },
+  { speed: speeds.slow, string: "NOW !!!", classes: ["red"] },
+  { speed: speeds.normal, string: "", pause: true },
+  { speed: speeds.slow, string: "Come to see your" },
+  { speed: speeds.slow, string: "ENEMY !", class: ["purple"] },
 ];
 
 export const prologueText = [OnePrologue, TwoPrologue];

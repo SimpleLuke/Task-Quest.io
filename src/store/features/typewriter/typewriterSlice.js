@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { prologueText } from "../../../text/prologue.text";
 
 const sortText = (textLines) => {
   const characters = [];
