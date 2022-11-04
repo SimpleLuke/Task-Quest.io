@@ -44,11 +44,14 @@ const typewriterSlice = createSlice({
     nextText: (state) => {
       state.textOrder += 1;
     },
+    resetTextOrder: (state) => {
+      state.textOrder = 0;
+    },
   },
 });
 
 // console.log(healthSlice);
 
 export default typewriterSlice.reducer;
-export const { revealOneCharacter, showText, nextText } =
+export const { revealOneCharacter, showText, nextText, resetTextOrder } =
   typewriterSlice.actions;
