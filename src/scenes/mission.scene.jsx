@@ -40,9 +40,6 @@ const MissionScene = () => {
   };
 
   const removeStepHandler = (event) => {
-    console.log(event.target.id);
-    // const index = Number(event.target.__reactFiber$4u3w6ewzlcl.key);
-    // console.log(index);
     dispatch(removeStep(event.target.id));
   };
 

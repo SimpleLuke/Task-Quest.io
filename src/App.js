@@ -10,12 +10,12 @@ const App = () => {
   const { currentScene } = useSelector((state) => state.scene);
 
   useEffect(() => {
-    console.log("scene change", scene);
+    // console.log("scene change", scene);
     setScene(currentScene);
   }, [currentScene]);
 
   return (
-    <div className="flex flex-col pt-32 items-center h-screen">
+    <div className="flex flex-col pt-32 items-center ">
       {scene === "prologue" && <PrologueScene />}
       {scene === "mission" && <MissionScene />}
       {scene === "combat" && <CombatScene />}

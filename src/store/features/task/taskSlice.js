@@ -5,6 +5,7 @@ const initialState = {
     name: "",
     steps: [],
   },
+  finishedSteps: [],
 };
 
 const taskSlice = createSlice({
@@ -20,8 +21,13 @@ const taskSlice = createSlice({
     removeStep: (state, { payload }) => {
       state.task.steps.splice(payload, 1);
     },
+    finishStep: (state, { payload }) => {
+      state.finishedSteps.push(state.task.steps[payload]);
+      state.task.steps.splice(payload, 1);
+    },
   },
 });
 
 export default taskSlice.reducer;
-export const { setTaskName, setTaskSteps, removeStep } = taskSlice.actions;
+export const { setTaskName, setTaskSteps, removeStep, finishStep } =
+  taskSlice.actions;
