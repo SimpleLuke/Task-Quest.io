@@ -8,9 +8,11 @@ import { finishStep } from "../store/features/task/taskSlice";
 const CombatScene = () => {
   const dispatch = useDispatch();
   const [acttack, setActack] = useState(10);
+  const [isAttack, setIsActtack] = useState(false);
+  const [isDead, setIsDead] = useState(false);
   const { task, finishedSteps } = useSelector((state) => state.task);
   const { name, steps } = task;
-  const { maxHp } = useSelector((state) => state.health);
+  const { maxHp, currentHp } = useSelector((state) => state.health);
 
   useEffect(() => {
     const power = maxHp / steps.length;
@@ -18,9 +20,18 @@ const CombatScene = () => {
     setActack(power);
   }, []);
 
+  useEffect(() => {
+    if (currentHp === 0) {
+      setIsDead(true);
+    }
+    const timeoutId = setTimeout(() => setIsActtack(false), 1000);
+    return () => clearTimeout(timeoutId);
+  }, [isAttack, currentHp]);
+
   const finishStepHandler = (event) => {
     dispatch(decreaseHp(acttack));
     dispatch(finishStep(event.target.id));
+    setIsActtack(true);
   };
 
   return (
@@ -29,7 +40,7 @@ const CombatScene = () => {
         <h1 className="text-6xl">{name}</h1>
       </div>
       <div className="mt-[-100px]">
-        <Monster />
+        <Monster isAttack={isAttack} isDead={isDead} />
         <HealthBar />
         <div>
           <button className="w-10" onClick={() => dispatch(decreaseHp(10))}>
@@ -40,7 +51,7 @@ const CombatScene = () => {
           </button>
         </div>
       </div>
-      {steps.length !== 0 && (
+      {(steps.length !== 0 || finishStep !== 0) && (
         <div className="mt-10 text-center">
           <ul>
             {finishedSteps.map((step, index) => (

@@ -111,4 +111,40 @@
   .text span.purple {
     color: rgb(201, 38, 255);
   }
+
+  /* Animation */
+  .animate-blink {
+    animation: 0.5s linear blink;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 100%;
+    }
+    25% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 100%;
+    }
+    75% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  .animate-fade-out {
+    animation: 1s ease-out forwards fade-out;
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
 }
