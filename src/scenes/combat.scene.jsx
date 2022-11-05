@@ -2,8 +2,13 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Monster from "../components/monster/monster";
 import HealthBar from "../components/health-bar/health-bar";
-import { increaseHp, decreaseHp } from "../store/features/health/healthSlice";
-import { finishStep } from "../store/features/task/taskSlice";
+import {
+  increaseHp,
+  decreaseHp,
+  initializeHp,
+} from "../store/features/health/healthSlice";
+import { finishStep, initializeTask } from "../store/features/task/taskSlice";
+import { setScene } from "../store/features/scene/sceneSlice";
 
 const CombatScene = () => {
   const dispatch = useDispatch();
@@ -34,6 +39,12 @@ const CombatScene = () => {
     setIsActtack(true);
   };
 
+  const nextEnemyHandler = () => {
+    dispatch(setScene("mission"));
+    dispatch(initializeTask());
+    dispatch(initializeHp());
+  };
+
   return (
     <Fragment>
       <div>
@@ -42,14 +53,14 @@ const CombatScene = () => {
       <div className="mt-[-100px]">
         <Monster isAttack={isAttack} isDead={isDead} />
         <HealthBar />
-        <div>
+        {/* <div>
           <button className="w-10" onClick={() => dispatch(decreaseHp(10))}>
             -
           </button>
           <button className="w-10" onClick={() => dispatch(increaseHp(10))}>
             +
           </button>
-        </div>
+        </div> */}
       </div>
       {(steps.length !== 0 || finishStep !== 0) && (
         <div className="mt-10 text-center">
@@ -79,6 +90,14 @@ const CombatScene = () => {
             ))}
           </ul>
         </div>
+      )}
+      {isDead && (
+        <button
+          className="mt-8 bg-red-500 text-white p-3 rounded-md text-2xl font-bold leading-10 "
+          onClick={nextEnemyHandler}
+        >
+          NEXT ENEMY
+        </button>
       )}
     </Fragment>
   );

@@ -25,10 +25,14 @@ const healthSlice = createSlice({
         state.currentHp > state.maxHp ? state.maxHp : state.currentHp;
       state.currentHp = state.currentHp < 0 ? 0 : state.currentHp;
     },
+    initializeHp: (state) => {
+      state.currentHp = 100;
+    },
   },
 });
 
 // console.log(healthSlice);
 
 export default healthSlice.reducer;
-export const { renderFills, increaseHp, decreaseHp } = healthSlice.actions;
+export const { renderFills, increaseHp, decreaseHp, initializeHp } =
+  healthSlice.actions;

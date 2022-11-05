@@ -25,9 +25,17 @@ const taskSlice = createSlice({
       state.finishedSteps.push(state.task.steps[payload]);
       state.task.steps.splice(payload, 1);
     },
+    initializeTask: (state) => {
+      return initialState;
+    },
   },
 });
 
 export default taskSlice.reducer;
-export const { setTaskName, setTaskSteps, removeStep, finishStep } =
-  taskSlice.actions;
+export const {
+  setTaskName,
+  setTaskSteps,
+  removeStep,
+  finishStep,
+  initializeTask,
+} = taskSlice.actions;
