@@ -1,14 +1,18 @@
 import { Fragment } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Monster from "../components/monster/monster";
 import HealthBar from "../components/health-bar/health-bar";
 import { increaseHp, decreaseHp } from "../store/features/health/healthSlice";
 
 const CombatScene = () => {
   const dispatch = useDispatch();
+  const {} = useSelector((state) => state.task);
 
   return (
     <Fragment>
+      <div>
+        <h1></h1>
+      </div>
       <Monster />
       <HealthBar />
       <div>

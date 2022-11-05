@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   task: {
     name: "",
-    items: [],
+    steps: [],
   },
 };
 
@@ -15,10 +15,10 @@ const taskSlice = createSlice({
       state.task.name = payload;
     },
     setTaskSteps: (state, { payload }) => {
-      state.task.items.push(payload);
+      state.task.steps.push(payload);
     },
     removeStep: (state, { payload }) => {
-      state.task.items.splice(payload, 1);
+      state.task.steps.splice(payload, 1);
     },
   },
 });

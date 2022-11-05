@@ -94,10 +94,10 @@ const MissionScene = () => {
         )}
       </form>
 
-      {task.items.length !== 0 && (
+      {task.steps.length !== 0 && (
         <div className="mt-10 w-[80%]">
           <ul>
-            {task.items.map((step, index) => (
+            {task.steps.map((step, index) => (
               <li
                 key={index}
                 className="text-4xl tracking-wider text-black cursor-default mt-1 group"
