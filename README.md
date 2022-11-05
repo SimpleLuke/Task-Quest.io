@@ -25,12 +25,14 @@ Users should be able to:
 
 ### Screenshot
 
-<img src="" width="400" />
+<img src="./preview/textAnimation.gif" width="400" />
+<img src="./preview/mission.gif" width="400" />
+<img src="./preview/combat.gif" width="400" />
 
 
 ### Links
 
-- Live Site: [Click here]()
+- Live Site: [Click here](https://task-quest-io.netlify.app/)
 
 ### Built with
 
