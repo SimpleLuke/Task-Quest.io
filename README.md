@@ -1,4 +1,4 @@
-Task-Quest.io(Beta) is inpsired by one of my favorite games, Dragon Quest. This project is about increasing productivity by gaming elements. This application is built by ReactJS and Tailwind. 
+Task-Quest.io(Beta) is inpsired by one of my favorite games, Dragon Quest. This project is about increasing productivity by gaming elements. This application is built by ReactJS and Tailwind. Redux toolkit for stage management.
 
 
 
@@ -38,6 +38,7 @@ Users should be able to:
 
 - React JS
 - Tailwind
+- Redux Toolkit
 
 
 ## Author
