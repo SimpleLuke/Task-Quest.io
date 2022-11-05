@@ -1,7 +1,10 @@
 import { Fragment, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { nextText } from "../store/features/typewriter/typewriterSlice";
+import {
+  nextText,
+  resetTextOrder,
+} from "../store/features/typewriter/typewriterSlice";
 import {
   setTaskName,
   setTaskSteps,
@@ -43,6 +46,11 @@ const MissionScene = () => {
     dispatch(removeStep(event.target.id));
   };
 
+  const confirmHandler = () => {
+    dispatch(setScene("combat"));
+    dispatch(resetTextOrder());
+  };
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
   };
@@ -77,7 +85,10 @@ const MissionScene = () => {
           </button>
         )}
         {textOrder !== 0 && (
-          <button type="submit" className="h-16 w-1/6 bg-red-600 text-2xl">
+          <button
+            className="h-16 w-1/6 bg-red-600 text-2xl"
+            onClick={confirmHandler}
+          >
             GO
           </button>
         )}
