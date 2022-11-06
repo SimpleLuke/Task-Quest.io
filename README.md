@@ -1,4 +1,4 @@
-Task-Quest.io(Beta) is inpsired by one of my favorite games, Dragon Quest. This project is about increasing productivity by gaming elements. This application is built by ReactJS and Tailwind. Redux toolkit for stage management.
+Task-Quest.io(Beta) is inspired by one of my favourite games, Dragon Quest. This project is about increasing productivity through gaming elements. This application is built with ReactJS and Tailwind. Redux toolkit for stage management.
 
 
 
@@ -15,7 +15,7 @@ Task-Quest.io(Beta) is inpsired by one of my favorite games, Dragon Quest. This 
 
 ## Overview
 
-In this very first stage, there is a simple to-do-list feature. It encourages user divide their task into few small steps to tackle. By finishing steps, the hero(user) will attack the Enemy(task). And the Enemy will eventually die when all steps are done.
+In this very first stage, there is a simple to-do list feature. It encourages the user to divide their task into a few small steps to tackle. Then, the hero(user) will attack the Enemy(task) by finishing the steps. And the Enemy will eventually die when all steps are done.
 
 Users should be able to:
 
